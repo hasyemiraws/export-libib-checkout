@@ -1,0 +1,18 @@
+name: Start Fly Machine
+
+on:
+  schedule:
+    - cron: "0 4 * * *"  # Runs at 4 AM UTC (11 AM GMT+7)
+    - cron: "0 13 * * *" # Runs at 1 PM UTC (8 PM GMT+7)
+
+jobs:
+  start-fly-machine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Fly CLI
+        run: curl -L https://fly.io/install.sh | sh
+      
+      - name: Start Fly Machine
+        run: |
+          export FLY_API_TOKEN=${{ secrets.FLY_API_TOKEN }}
+          fly machines start ${{ secrets.FLY_MACHINE_ID }} 
