@@ -23,7 +23,7 @@ jobs:
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
-      - name: Deploy with environment variables
+      - name: Run machine
         run: |
           fly machines start ${{ secrets.FLY_MACHINE_ID }} 
         env:
