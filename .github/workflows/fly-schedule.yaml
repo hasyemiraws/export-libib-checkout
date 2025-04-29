@@ -2,7 +2,9 @@ name: Start Fly Machine
 
 on:
   schedule:
+    - cron: "0 0 * * *"  # Runs at 4 AM UTC (7 AM GMT+7)
     - cron: "0 4 * * *"  # Runs at 4 AM UTC (11 AM GMT+7)
+    - cron: "0 9 * * *" # Runs at 1 PM UTC (4 PM GMT+7)
     - cron: "0 13 * * *" # Runs at 1 PM UTC (8 PM GMT+7)
 
 jobs:
